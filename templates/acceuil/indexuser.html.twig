@@ -1,0 +1,268 @@
+{% extends 'base1.html.twig' %}
+
+{% block title %}Home
+{% endblock %}
+
+{% block body %}
+
+  <aside id="fh5co-hero" class="js-fullheight">
+		<div class="flexslider js-fullheight">
+			<ul class="slides">
+	<li style="background-image: url(assets/images/img_bg_2.jpg);">
+		   		<div class="container">
+		   			<div class="col-md-6 col-md-offset-3 col-md-pull-3 js-fullheight slider-text">
+		   				<div class="slider-text-inner">
+		   					<div class="desc">
+		   						<span class="price">650 DT</span>
+		   						<h2>The Haluz Rocking Chair</h2>
+		   						<p>Designed with a refined appearance and plenty of natural charm, the Haluz rocking chair provides a sophisticated take on rustic style. The chair wonderfully 
+                   combines the clean lines of the ash wood frame and the organic allure of willow branches. </p>
+		   					</div>
+		   				</div>
+		   			</div>
+		   		</div>
+		   	</li>
+
+		   	<li style="background-image: url(assets/images/tablee.jpg);">
+		   		<div class="overlay-gradient"></div>
+		   		<div class="container">
+		   			<div class="col-md-6 col-md-offset-3 col-md-pull-3 js-fullheight slider-text">
+		   				<div class="slider-text-inner">
+		   					<div class="desc">
+		   						<span class="price">700 DT</span>
+		   						<h2>The Quilda Coffee Table</h2>
+		   						<p>the Quilda coffee table has only good sides: 
+                   vintage-style design combining oak and cane, natural colors and a double top. </p>
+			   				
+		   					</div>
+		   				</div>
+		   			</div>
+		   		</div>
+		   	</li>
+		   
+		   	<li style="background-image: url(assets/images/chair.jpg);">
+		   		<div class="container">
+		   			<div class="col-md-6 col-md-offset-3 col-md-pull-3 js-fullheight slider-text">
+		   				<div class="slider-text-inner">
+		   					<div class="desc">
+		   						<span class="price">55 DT</span>
+		   						<h2>The whale Chair</h2>
+		   						<p>The backrest and seat plate, inspired by the shape of a whale, are visually comfortable with their characteristic smooth curves and comfortably surround the seated person in terms of use.</p>
+		   					</div>
+		   				</div>
+		   			</div>
+		   		</div>
+		   	</li>
+		   	<li style="background-image: url(assets/images/img_bg_4.jpg);">
+		   		<div class="container">
+		   			<div class="col-md-6 col-md-offset-3 col-md-pull-3 js-fullheight slider-text">
+		   				<div class="slider-text-inner">
+		   					<div class="desc">
+		   						<span class="price">89 DT</span>
+		   						<h2>The WW Chair</h2>
+		   						<p>A slightly curved seat provides more comfort and mirrors the upper part of the backrest. Thin shafts of black wire measuring 5mm dip, curve, and fan out gracefully to join the section made from wood.</p>
+		   					</div>
+		   				</div>
+		   			</div>
+		   		</div>
+		   	</li>
+		  	</ul>
+	  	</div>
+	</aside>
+  <div id="fh5co-services" class="fh5co-bg-section">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-4 col-sm-4 text-center">
+					<div class="feature-center animate-box" data-animate-effect="fadeIn">
+						<span class="icon">
+							<i class="icon-credit-card"></i>
+						</span>
+						<h3>Credit Card</h3>
+						<p>Protecting your online payments is our top priority. That's why, whether you're 
+            using a debit card, credit card or digital wallet, you can always pay with confidence.</p>
+						<p><a href="#" class="btn btn-primary btn-outline">Learn More</a></p>
+					</div>
+				</div>
+				<div class="col-md-4 col-sm-4 text-center">
+					<div class="feature-center animate-box" data-animate-effect="fadeIn">
+						<span class="icon">
+							<i class="icon-drive"></i>
+						</span>
+						<h3>Affordable</h3>
+						<p>The company offers a lifetime warranty guaranteeing items will be free of defects in materials and workmanship for as long as you own them.</p>
+						<p><a href="#" class="btn btn-primary btn-outline">Learn More</a></p>
+					</div>
+				</div>
+				<div class="col-md-4 col-sm-4 text-center">
+					<div class="feature-center animate-box" data-animate-effect="fadeIn">
+						<span class="icon">
+							<i class="icon-paper-plane"></i>
+						</span>
+						<h3>Free Delivery</h3>
+						<p> The company offers free delivery for the first time deliverly or to an address of your choice when you spend 50 DT or more in a single transaction.</p>
+						<p><a href="#" class="btn btn-primary btn-outline">Learn More</a></p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div id="fh5co-product">
+		<div class="container">
+			<div class="row animate-box">
+				<div class="col-md-8 col-md-offset-2 text-center fh5co-heading">
+					<span>Cool Stuff</span>
+					<h2>Furnitures.</h2>
+          	<p>OUR FURNITURE : Modern furniture and more ranging from European to Classical style with best prices.</p>
+				</div>
+			</div>
+		
+		
+        {% for product in products %}
+				<div class="col-md-4 text-center animate-box">
+					<div class="product">
+						<div class="product-grid" style="background-image:url({{ asset('images/user/') ~ product.image }});">
+							<div class="inner">
+								<p>
+								<a href="{{path("cart_add1", {id: product.id})}}" class="icon"><i class="icon-shopping-cart"></i></a>
+								</p>
+							</div>
+						</div>
+						<div class="desc">
+							<h3><a href="single.html">{{ product.title }}</a></h3>
+							<span class="price">{{ product.price }} DT</span>
+						</div>
+					</div>
+				</div>
+        {% endfor %}
+	
+	<div id="fh5co-testimonial" class="fh5co-bg-section">
+		<div class="container">
+			<div class="row animate-box">
+				<div class="col-md-8 col-md-offset-2 text-center fh5co-heading">
+					<span>Testimony</span>
+					<h2>Happy Clients</h2>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-10 col-md-offset-1">
+					<div class="row animate-box">
+						<div class="owl-carousel owl-carousel-fullwidth">
+							<div class="item">
+								<div class="testimony-slide active text-center">
+									<figure>
+										<img src="assets/images/person1.jpg" alt="user">
+									</figure>
+									<span>Amelia Edmondson, via <a href="#" class="twitter">Twitter</a></span>
+									<blockquote>
+										<p>The furniture was the right fit for our venue, excellent quality, sturdy and durable. The customer service was exceptional in all aspects, especially when helping to decide on the correct furniture and specific measurements for the unique spaces within a brand new venue. We were very pleased with the speed of delivery. We had a scratch on one table which occurred whilst out for delivery, this was replaced the next working day. Excellent service from beginning to end.</p>
+									</blockquote>
+								</div>
+							</div>
+							<div class="item">
+								<div class="testimony-slide active text-center">
+									<figure>
+										<img src="assets/images/person2.jpg" alt="user">
+									</figure>
+									<span>John Doe, via <a href="#" class="twitter">Twitter</a></span>
+									<blockquote>
+										<p>Bought another 10 chairs to 'top up' on the 50 we bought last autumn.  Order went through quickly and easily.  Then Beth phoned to provide details of the delivery - which was quicker than I had expected.  The delivery driver turned up on time and was happy to offload the chairs for me.   Then Beth emailed to make sure everything was ok.  Excellent service and really pleasant people to deal with.  Oh - and EXCELLENT value for money too!</p>
+									</blockquote>
+								</div>
+							</div>
+							<div class="item">
+								<div class="testimony-slide active text-center">
+									<figure>
+										<img src="assets/images/person3.jpg" alt="user">
+									</figure>
+									<span>Dave Faulkner, via <a href="#" class="twitter">Twitter</a></span>
+									<blockquote>
+										<p>I ordered tables and chairs for our golf club dining room extension. A very helpful service prior to ordering and the delivery was very quick following our order with plenty of accurate info regarding date and time. The quality of the furniture is superb and comments from our members and visitors all positive. We'll be back for more. Thanks</p>
+									</blockquote>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+
+	<div id="fh5co-counter" class="fh5co-bg fh5co-counter" style="background-image:url(assets/images/img_bg_5.jpg);">
+		<div class="container">
+			<div class="row">
+				<div class="display-t">
+					<div class="display-tc">
+						<div class="col-md-3 col-sm-6 animate-box">
+							<div class="feature-center">
+								<span class="icon">
+									<i class="icon-eye"></i>
+								</span>
+
+								<span class="counter js-counter" data-from="0" data-to="22070" data-speed="5000" data-refresh-interval="50">1</span>
+								<span class="counter-label">Creativity Fuel</span>
+
+							</div>
+						</div>
+						<div class="col-md-3 col-sm-6 animate-box">
+							<div class="feature-center">
+								<span class="icon">
+									<i class="icon-shopping-cart"></i>
+								</span>
+
+								<span class="counter js-counter" data-from="0" data-to="450" data-speed="5000" data-refresh-interval="50">1</span>
+								<span class="counter-label">Happy Clients</span>
+							</div>
+						</div>
+						<div class="col-md-3 col-sm-6 animate-box">
+							<div class="feature-center">
+								<span class="icon">
+									<i class="icon-shop"></i>
+								</span>
+								<span class="counter js-counter" data-from="0" data-to="700" data-speed="5000" data-refresh-interval="50">1</span>
+								<span class="counter-label">All Products</span>
+							</div>
+						</div>
+						<div class="col-md-3 col-sm-6 animate-box">
+							<div class="feature-center">
+								<span class="icon">
+									<i class="icon-clock"></i>
+								</span>
+
+								<span class="counter js-counter" data-from="0" data-to="5605" data-speed="5000" data-refresh-interval="50">1</span>
+								<span class="counter-label">Hours Spent</span>
+
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div id="fh5co-started">
+		<div class="container">
+			<div class="row animate-box">
+				<div class="col-md-8 col-md-offset-2 text-center fh5co-heading">
+					<h2>Newsletter</h2>
+					<p>Just stay tune for our latest Product. Now you can subscribe</p>
+				</div>
+			</div>
+			<div class="row animate-box">
+				<div class="col-md-8 col-md-offset-2">
+					<form class="form-inline" action={{path('subs')}} method=POST>
+						<div class="col-md-6 col-sm-6">
+							<div class="form-group">
+								<label for="email" class="sr-only">Email</label>
+								<input type="email" class="form-control" id="email" placeholder="Email">
+							</div>
+						</div>
+						<div class="col-md-6 col-sm-6">
+							<button type="submit" class="btn btn-default btn-block">Subscribe</button>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+{% endblock %}

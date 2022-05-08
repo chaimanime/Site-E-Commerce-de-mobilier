@@ -1,0 +1,88 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Cart{% endblock %}
+
+{% block body %}
+
+              
+<!-- cart -->
+	<div class="cart-section mt-150 mb-150">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-12 col-md-12">
+					<div class="cart-table-wrap">
+						<table class="cart-table">
+							<thead class="cart-table-head">
+                                <br>
+          <br>
+            <br>
+								<tr class="table-head-row">
+									
+									<th class="product-image">Product Image</th>
+                                    
+									<th class="product-name">Name</th>
+									<th class="product-price">Price</th>
+									<th class="product-quantity">Quantity</th>
+                                     <th class="product-total">Total</th>
+                                    <th class="product-total">Actions</th>
+                                   
+
+
+								</tr>
+							</thead>
+							<tbody>
+								
+                    {% for element in dataPanier %}
+                    <tr class="table-body-row">
+                    <td>
+                    <br><img style=" width: 200px;
+    height: auto;" src="{{ asset('images/user/') ~ element.produit.image}}" }}><br><br></td>
+                    <td>{{ element.produit.title }}</td>
+                    <td>{{ element.produit.price }} DT</td>
+                    <td>{{ element.quantite }}</td>
+                    <td>{{ element.quantite * element.produit.price }} DT</td>
+                    <td>
+                    <a href="{{path("cart_add", {id: element.produit.id})}}">
+                             <img src="{{ asset("assets/images/plus.png") }}"/>
+                        </a>
+                        <a href="{{path("cart_remove", {id: element.produit.id})}}">
+                           <img src="{{ asset("assets/images/moins.png") }}"/>
+                        </a>
+                        <a href="{{path("cart_delete", {id: element.produit.id})}}">
+                             <img src="{{ asset("assets/images/no.png") }}"/>
+                        </a>
+                    </td>
+					</tr>
+                    {% else %}
+                    <tr>
+                    <td colspan="5" class="text-center">Votre panier est vide</td>
+                    </tr>
+                    {% endfor %}
+					</tbody>
+                     <tfoot>
+            <tr>
+
+                <td colspan="4">Total</td>
+                <td class="text-end">{{ total }} DT</td>
+                <td style="text-align:center;">
+                <br>
+                    <a href="{{path("cart_delete_all")}}">
+                        <img src="{{ asset("assets/images/trash.png") }}"/>
+                    </a>
+                    <br>
+                    <br>
+                </td>
+            </tr>
+        </tfoot>
+						</table>
+                      
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+    <br>
+    <br>
+              
+    
+{% endblock %}

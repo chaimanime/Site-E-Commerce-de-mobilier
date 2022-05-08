@@ -1,0 +1,56 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Log in!{% endblock %}
+
+{% block body %}
+
+<br>
+<br>
+<br>
+<br>
+			
+					<form method="post">
+                    
+                    	 <fieldset style=" margin-left: 450px;
+    margin-right: auto;
+    width: 30em;">
+                     
+        <legend style="padding:10px 0; font-size:20px;">Sign In</legend>
+						<div class="row form-group"  >
+							<div class="col-md-12" >
+							<label for="email">Email</label>
+								<input type="text" value="{{ last_username }}" name="email" id="inputEmail" class="form-control" placeholder="Your email address" required autofocus>
+							</div>
+						</div>
+                        
+                        <div class="row form-group">
+                        <div class="col-md-12">
+								<label for="password">Password</label>
+								 <input type="password" name="password" id="inputPassword" class='form-control' placeholder="Entrer votre mot de passe" required>
+
+                        <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
+							</div>
+					    	</div>
+
+					
+						<div class="form-group">
+						 <center>	<input type="submit" value="Sign In" class="btn btn-primary">
+                          <br><br> <p>Don't have an account yet ? <a href="{{ path('app_register') }}">  Sign Up </a> </p>
+						 </center>
+                        </div>
+                       
+                          
+                         <br>
+                         <br>
+                         <br>
+     
+ 
+ </fieldset>
+                    {% if error %}
+        <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+    {% endif %}
+					</form>		
+			
+          
+               
+{% endblock %}
